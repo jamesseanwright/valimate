@@ -7,8 +7,8 @@ module.exports = {
 	send(markup) {
 		return new Promise((resolve, reject) => {
 			const options = {
-				hostname: VALIDATOR_HOST,
-				path: `${VALIDATOR_PATH}?out=json`,
+				hostname: host,
+				path: `${path}?out=json`,
 				method: 'POST',
 
 				headers: {
