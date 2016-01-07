@@ -1,0 +1,8 @@
+{
+	"verbosity": "error",
+	"zeroExitCodeOnFail": false,
+
+	"urls": [
+		"http://jamesswright.co.uk"
+	]
+}
