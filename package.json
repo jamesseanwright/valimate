@@ -1,0 +1,19 @@
+{
+  "name": "valimate",
+  "version": "0.1.0",
+  "description": "Automated HTML5 validation for Node.js applications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "html",
+    "html",
+    "validate",
+    "validation",
+    "w3",
+    "w3c"
+  ],
+  "author": "James Wright <james@jamesswright.co.uk>",
+  "license": "ISC"
+}
