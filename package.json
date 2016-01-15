@@ -1,8 +1,9 @@
 {
   "name": "valimate",
   "version": "0.1.0",
-  "description": "Automated HTML5 validation for Node.js applications",
+  "description": "Automated HTML validation for Node.js applications",
   "main": "index.js",
+  "bin": { "valimate": "./index" },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
