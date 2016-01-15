@@ -1,5 +1,4 @@
 {
-	"outputTypes": ["error"],
 	"zeroExitCodeOnFail": true,
 
 	"urls": [

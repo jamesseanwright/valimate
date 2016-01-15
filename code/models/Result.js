@@ -3,7 +3,8 @@
 const messages = Symbol('messages');
 
 module.exports = class Result {
-	constructor(response) {
+	constructor(url, response) {
+		this.url = url;
 		this[messages] = JSON.parse(response).messages;
 	}
 

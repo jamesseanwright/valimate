@@ -1,7 +1,6 @@
 'use strict';
 
 const httpService = require('./httpService');
-const Result = require('../models/Result');
 
 const VALIDATOR_HOST = 'https://validator.w3.org';
 const VALIDATOR_PATH = '/nu/';
@@ -17,6 +16,6 @@ module.exports = {
 				'Content-Type': 'text/html; charset=utf-8',
 				'Content-Length': markup.length
 			}
-		}).then(response => new Result(response));
+		});
 	}
 };
