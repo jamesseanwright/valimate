@@ -2,12 +2,6 @@
 	"zeroExitCodeOnFail": true,
 
 	"urls": [
-		"http://jamesswright.co.uk/",
-		"http://jamesswright.co.uk/about-me",
-		"http://jamesswright.co.uk/skills",
-		"http://jamesswright.co.uk/projects",
-		"http://jamesswright.co.uk/experience",
-		"http://jamesswright.co.uk/blog",
-		"http://jamesswright.co.uk/contact-me"
+		"http://jamesswright.co.uk/blog"
 	]
 }
