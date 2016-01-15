@@ -4,7 +4,7 @@ const messages = Symbol('messages');
 
 module.exports = class Result {
 	constructor(response) {
-		this[messages] = response.messages;
+		this[messages] = JSON.parse(response).messages;
 	}
 
 	get info() {

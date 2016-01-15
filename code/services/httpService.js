@@ -1,19 +1,24 @@
 'use strict';
 
+const http = require('http');
+const https = require('https');
+
+const HTTPS_REGEX = /^https/;
+const PROTOCOL_REGEX = /^http(s?)\:\/\//;
+const INDETERMINABLE_HOST = 'Unable to determine host';
+
 function makeRequest(method, options) {
 	return new Promise((resolve, reject) => {
 		const requestOptions = {
-			hostname: options.host,
+			hostname: getHostname(options.host),
 			path: options.path,
 			method,
-
-			headers: {
-				'Content-Type': 'text/html; charset=utf-8',
-				'Content-Length': options.body ? options.body.length : 0
-			}
+			headers: options.headers
 		};
 
-		const request = https.request(requestOptions, res => onResponse(res, resolve, reject));
+		const requester = getRequester(options.host);
+
+		const request = requester(requestOptions, res => onResponse(res, resolve, reject));
 
 		request.on('error', reject);
 
@@ -21,8 +26,23 @@ function makeRequest(method, options) {
 			request.write(options.body);
 		}
 
-		request.end();		
+		request.end();	
 	});
+}
+
+function getHostname(host) {
+	const protocol = host.match(PROTOCOL_REGEX);
+
+	if (!protocol) {
+		throw new Error(INDETERMINABLE_HOST);
+	}
+
+	return host.substring(protocol[0].length, host.length);
+}
+
+function getRequester(host) {
+	const isHttps = host.match(HTTPS_REGEX);
+	return isHttps ? https.request : http.request;
 }
 
 function onResponse(response, resolve, reject) {
@@ -34,7 +54,7 @@ function onResponse(response, resolve, reject) {
 	}
 
 	response.on('data', chunk => responseBody += chunk.toString());
-	response.on('end', () => resolve(JSON.parse(responseBody)));
+	response.on('end', () => resolve(responseBody));
 }
 
 module.exports = {
@@ -45,4 +65,4 @@ module.exports = {
 	get(options) {
 		return makeRequest('GET', options);
 	}
-}
+};
