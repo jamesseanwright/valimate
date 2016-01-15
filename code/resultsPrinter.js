@@ -9,6 +9,10 @@ const JOINER = '\n';
 const BULLET = '*'
 
 module.exports = {
+	resetStdout() {
+		console.log(NORMAL);
+	},
+
 	printResults(results) {
 		for (let result of results) {
 			this._print(result);

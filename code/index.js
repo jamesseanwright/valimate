@@ -9,7 +9,11 @@ runner(config.urls)
 	.then(results => resultsPrinter.printResults(results))
 	.then(results => {
 		process.exit(hasErrors(results) && config.failHard ? 1 : 0);
-	}).catch(e => console.log(e) && process.exit(1));
+	}).catch(e => {
+		console.error(e);
+		resultsPrinter.resetStdout();
+		process.exit(1)
+	});
 
 function hasErrors(results) {
 	return results.some(result => result.errors.length);
