@@ -1,0 +1,2 @@
+code/**/*-tests.js
+--require ./test/init

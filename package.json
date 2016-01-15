@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "description": "Automated HTML validation for Node.js applications",
   "main": "index.js",
-  "bin": { "valimate": "./index" },
+  "bin": {
+    "valimate": "./index"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "keywords": [
     "html",
@@ -16,5 +18,10 @@
     "w3c"
   ],
   "author": "James Wright <james@jamesswright.co.uk>",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4",
+    "sinon": "^1.17.2"
+  }
 }

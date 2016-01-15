@@ -8,38 +8,40 @@ const NORMAL = '\x1b[0m';
 const JOINER = '\n';
 const BULLET = '*'
 
-function map(item) {
-	return `${BULLET} ${item.message}`;
-}
+module.exports = {
+	printResults(results) {
+		for (let result of results) {
+			this._print(result);
+		}
 
-function mapWithDetails(item) {
-	return `${BULLET} ${item.message} - Line ${item.lastLine}, Column ${item.lastColumn}`;
-}
+		return Promise.resolve(results);
+	},
 
-function print(result) {
-	const warnings = result.warnings;
-	const errors = result.errors;
+	_print(result) {
+		const warnings = result.warnings;
+		const errors = result.errors;
 
-	console.log(`${WHITE}Results for ${result.url}:`);
-	console.log(`${warnings.length} warnings, ${errors.length} errors${JOINER}`);
+		console.log(`${WHITE}Results for ${result.url}:`);
+		console.log(`${warnings.length} warnings, ${errors.length} errors${JOINER}`);
 
-	console.log(BLUE + result.info.map(map).join(JOINER));
+		console.log(BLUE + result.info.map(info => this._map(info)).join(JOINER));
 
-	if (warnings.length) {
-		console.log(YELLOW + warnings.map(mapWithDetails).join(JOINER));
+		if (warnings.length) {
+			console.log(YELLOW + warnings.map(warning => this._mapWithDetails(warning)).join(JOINER));
+		}
+
+		if (errors.length) {
+			console.log(RED + result.errors.map(error => this._mapWithDetails(error)).join(JOINER));
+		}
+
+		console.log(NORMAL + JOINER);
+	},
+
+	_map(item) {
+		return `${BULLET} ${item.message}`;
+	},
+
+	_mapWithDetails(item) {
+		return `${this._map(item)} - Line ${item.lastLine}, Column ${item.lastColumn}`;
 	}
-
-	if (errors.length) {
-		console.log(RED + result.errors.map(mapWithDetails).join(JOINER));
-	}
-
-	console.log(NORMAL + JOINER);
 }
-
-module.exports = function resultsPrinter(results) {
-	for (let result of results) {
-		print(result);
-	}
-
-	return Promise.resolve(results);
-};
