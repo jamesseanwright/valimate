@@ -27,6 +27,14 @@ describe('the markup service', function () {
 
 			expect(actualHost).to.equal(expectedHost);
 		});
+
+		it('should handle subdomains', function () {
+			const url = 'https://shopping.google.com/some-resource';
+			const expectedHost = 'https://shopping.google.com';
+			const actualHost = markupService._extractHost(url);
+			
+			expect(actualHost).to.equal(expectedHost);
+		});
 	});
 
 	describe('the extractPath method', function () {

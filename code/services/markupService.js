@@ -2,7 +2,7 @@
 
 const httpService = require('./httpService');
 
-const HOST_REGEX = /^http(s?)\:\/\/(.*)\//i;
+const HOST_REGEX = /^http(s?)\:\/\/(.*)\.[a-z\.]{2,6}\//i;
 const PATH_DELIMITER = '/';
 const INVALID_HOST = 'The url {url} is invalid!';
 
