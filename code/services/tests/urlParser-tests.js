@@ -64,7 +64,18 @@ describe('the URL parser', function () {
 	describe('the getProtocol method', function () {
 		it('should extract the HTTP protocol', function () {
 			const url = 'http://google.com/';
+			const expectedProtocol = 'http://';
+			const actualProtocol = urlParser.getProtocol(url);
 
+			expect(actualProtocol).to.equal(expectedProtocol);
+		});
+
+		it('should extract the HTTPS protocol', function () {
+			const url = 'https://google.com/';
+			const expectedProtocol = 'https://';
+			const actualProtocol = urlParser.getProtocol(url);
+
+			expect(actualProtocol).to.equal(expectedProtocol);
 		});
 	});
 
@@ -83,6 +94,20 @@ describe('the URL parser', function () {
 			const actualPath = urlParser.getPath(url);
 
 			expect(actualPath).to.equal(expectedPath);
+		});
+	});
+
+	describe('the isHttps method', function () {
+		it('should return true for HTTPS', function () {
+			const url = 'https://google.com/';
+
+			expect(urlParser.isHttps(url)).to.equal(true);
+		});
+
+		it('should return false for HTTP', function () {
+			const url = 'http://google.com/';
+
+			expect(urlParser.isHttps(url)).to.equal(false);
 		});
 	});
 });

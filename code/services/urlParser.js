@@ -41,7 +41,7 @@ module.exports = {
 		return url.substring(host.length, url.length);
 	},
 
-	isHttps(host) {
-		return !!host.match(HTTPS_REGEX);
+	isHttps(url) {
+		return !!url.match(HTTPS_REGEX);
 	}
 };
