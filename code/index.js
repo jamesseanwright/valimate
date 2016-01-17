@@ -15,14 +15,26 @@ const prerun = config.localAppServer
 
 prerun.then(runner)
 	.then(results => resultsPrinter.printResults(results))
-	.then(results => {
-		process.exit(hasErrors(results) && config.failHard ? 1 : 0);
-	}).catch(e => {
-		console.error(e);
+	.then(onValidated).catch(onError);
+
+function onValidated(results) {
+	const failed = hasErrors(results);
+
+	if (!failed) {
+		console.info('Congratulations! Your HTML is valid!');
 		resultsPrinter.resetStdout();
-		process.exit(1)
-	});
+		process.exit(0);
+	} 
+
+	process.exit(config.failHard ? 1 : 0);
+}
 
 function hasErrors(results) {
 	return results.some(result => result.errors.length);
+}
+
+function onError(error) {
+	console.error(error);
+	resultsPrinter.resetStdout();
+	process.exit(1)
 }
