@@ -1,15 +1,11 @@
 'use strict';
 
+const config = require('../config');
 const httpService = require('./httpService');
-
-const VALIDATOR_HOST = 'https://validator.w3.org';
-const VALIDATOR_PATH = '/nu/';
 
 module.exports = {
 	send(markup) {
-		return httpService.post({
-			host: VALIDATOR_HOST,
-			path: `${VALIDATOR_PATH}?out=json`,
+		return httpService.post(config.validatorUrl, {
 			body: markup,
 
 			headers: {

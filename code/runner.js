@@ -1,5 +1,6 @@
 'use strict';
 
+const config = require('./config');
 const markupService = require('./services/markupService'); 
 const w3Service = require('./services/w3Service');
 const Result = require('./models/Result');
@@ -10,7 +11,7 @@ function createPromise(url) {
 		.then(response => new Result(url, response));
 }
 
-module.exports = function runner(urls) {
-	var promises = urls.map(createPromise);
+module.exports = function runner() {
+	var promises = config.urls.map(createPromise);
 	return Promise.all(promises);
 };

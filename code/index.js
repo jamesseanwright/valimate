@@ -5,7 +5,7 @@ const config = require('./config');
 const runner = require('./runner');
 const resultsPrinter = require('./resultsPrinter');
 
-runner(config.urls)
+runner()
 	.then(results => resultsPrinter.printResults(results))
 	.then(results => {
 		process.exit(hasErrors(results) && config.failHard ? 1 : 0);
