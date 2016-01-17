@@ -36,5 +36,5 @@ function hasErrors(results) {
 function onError(error) {
 	console.error(error);
 	resultsPrinter.resetStdout();
-	process.exit(1)
+	process.exit(1);
 }
