@@ -2,6 +2,7 @@
   "name": "valimate",
   "version": "0.1.0",
   "description": "Automated HTML validation for Node.js applications",
+  "repository": "https://github.com/jamesseanwright/valimate",
   "main": "index.js",
   "bin": {
     "valimate": "./index"
