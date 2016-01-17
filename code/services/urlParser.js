@@ -35,7 +35,7 @@ module.exports = {
 	},
 
 	getPath(url) {
-		const host = this.getHost(url);
+		const host = this.getHost(url, true);
 		return url.substring(host.length, url.length);
 	},
 

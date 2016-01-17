@@ -5,7 +5,7 @@ const httpService = require('./httpService');
 
 module.exports = {
 	send(markup) {
-		return httpService.post(config.validatorUrl, {
+		return httpService.post(`${config.validatorUrl}?out=json`, {
 			body: markup,
 
 			headers: {
