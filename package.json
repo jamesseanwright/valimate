@@ -1,9 +1,10 @@
 {
   "name": "valimate",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Automated HTML validation for Node.js applications",
   "repository": "https://github.com/jamesseanwright/valimate",
   "main": "index.js",
+  "bin": "./code",
   "scripts": {
     "test": "mocha && node code"
   },
@@ -20,6 +21,6 @@
     "chai": "3.4.1",
     "mocha": "2.3.4",
     "sinon": "1.17.2",
-    "valimate-notifier": "1.0.1"
+    "valimate-notifier": "1.0.2"
   }
 }
