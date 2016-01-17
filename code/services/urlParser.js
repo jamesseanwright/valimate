@@ -1,6 +1,6 @@
 'use strict';
 
-const HOST_REGEX = /^http(s?)\:\/\/(.*)\.[a-z\.]{2,}\//i;
+const HOST_REGEX = /^http(s?)\:\/\/(.*)\.[a-z\.]{2,}(\/?)/i;
 const HTTPS_REGEX = /^https/;
 const PROTOCOL_REGEX = /^http(s?)\:\/\//;
 const PATH_DELIMITER = '/';
@@ -21,13 +21,15 @@ module.exports = {
 
 	getHost(url, preserveProtocol) {
 		const host = this._getFirstMatch(url, HOST_REGEX);
+		const hasTrailingSlash = host[host.length - 1] === PATH_DELIMITER;
+		const subStringEnd = hasTrailingSlash ? host.length - 1 : host.length;
 
 		if (!preserveProtocol) {
 			const protocol = this.getProtocol(url);
-			return host.substring(protocol.length, host.length - 1);
+			return host.substring(protocol.length, subStringEnd);
 		}
 
-		return host.substring(0, host.length - 1);
+		return host.substring(0, subStringEnd);
 	},
 
 	getProtocol(url) {

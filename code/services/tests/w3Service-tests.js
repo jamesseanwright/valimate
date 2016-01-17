@@ -9,15 +9,15 @@ describe('the W3 Service', function () {
 			const mockHttpService = sinon.mock(httpService);
 			const markup = 'some html lol';
 			
-			mockHttpService.expects('post').once().withArgs({
-				body: markup,
-				host: 'https://validator.w3.org',
-				path: '/nu/?out=json',
+			mockHttpService.expects('post')
+				.once()
+				.withArgs('https://validator.w3.org/nu/?out=json', {
+					body: markup,
 
-				headers: {
-					'Content-Length': markup.length,
-					'Content-Type': 'text/html; charset=utf-8'
-				}
+					headers: {
+						'Content-Length': markup.length,
+						'Content-Type': 'text/html; charset=utf-8'
+					}
 			}).returns(Promise.resolve());
 
 			return w3Service.send(markup)
