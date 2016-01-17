@@ -16,9 +16,7 @@ module.exports = {
 	_makeRequest(method, url, options) {
 		return new Promise((resolve, reject) => {
 			const requestOptions = this._createOptions(method, url, options);
-
 			const requester = this._getRequester(url);
-
 			const request = requester(requestOptions, res => this._onResponse(res, resolve, reject));
 
 			request.on('error', reject);
