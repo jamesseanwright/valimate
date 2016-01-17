@@ -25,16 +25,16 @@ module.exports = {
 		const warnings = result.warnings;
 		const errors = result.errors;
 
-		console.log(`${WHITE}Results for ${result.url}:`);
-		console.log(`${warnings.length} warnings, ${errors.length} errors${JOINER}`);
-
+		console.log(`${WHITE}Results for ${result.url}`);
 		console.log(BLUE + result.info.map(info => this._map(info)).join(JOINER));
 
 		if (warnings.length) {
-			console.log(YELLOW + warnings.map(warning => this._mapWithDetails(warning)).join(JOINER));
+			console.log(`${YELLOW}${warnings.length} warnings:`);
+			console.log(warnings.map(warning => this._mapWithDetails(warning)).join(JOINER));
 		}
 
 		if (errors.length) {
+			console.log(`${RED}${errors.length} errors:`);
 			console.log(RED + result.errors.map(error => this._mapWithDetails(error)).join(JOINER));
 		}
 
