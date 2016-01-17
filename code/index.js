@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 'use strict';
 
 const keepAlive = require('net').createServer().listen(10012);

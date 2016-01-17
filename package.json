@@ -1,10 +1,12 @@
 {
   "name": "valimate",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Automated HTML validation for Node.js applications",
   "repository": "https://github.com/jamesseanwright/valimate",
-  "main": "index.js",
-  "bin": "./code",
+  "bin": {
+    "valimate": "code/index.js"
+  },
+  "preferGlobal": true,
   "scripts": {
     "test": "mocha && node code"
   },
