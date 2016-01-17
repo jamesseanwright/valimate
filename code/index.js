@@ -7,10 +7,10 @@ const localAppServer = require('./localAppServer');
 const resultsPrinter = require('./resultsPrinter');
 
 const prerun = config.localAppServer
-	? localAppServer.start(onfig.localAppServer)
+	? localAppServer.start(config.localAppServer)
 	: Promise.resolve();
 
-prerun().then(runner)
+prerun.then(runner)
 	.then(results => resultsPrinter.printResults(results))
 	.then(results => {
 		process.exit(hasErrors(results) && config.failHard ? 1 : 0);
