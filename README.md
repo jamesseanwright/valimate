@@ -70,3 +70,8 @@ dataService.someAsyncOperation().then(data => {
 ```
 
 Upon running the `valimate` CLI, your app server will be started as a child process, and killed when testing is complete.
+
+
+## Contributing
+
+See the [Contributing wiki page](https://github.com/jamesseanwright/valimate/wiki/contributing).
