@@ -2,9 +2,12 @@
 
 const keepAlive = require('net').createServer().listen(10012);
 const config = require('./config');
+const intro = require('./intro');
 const runner = require('./runner');
 const localAppServer = require('./localAppServer');
 const resultsPrinter = require('./resultsPrinter');
+
+intro();
 
 const prerun = config.localAppServer
 	? localAppServer.start(config.localAppServer)

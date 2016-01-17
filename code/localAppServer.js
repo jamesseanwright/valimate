@@ -7,6 +7,8 @@ const VALIDATION_MODE = 'validationMode'
 
 module.exports = {
 	start(serverPath) {
+		console.info(`Waiting for ${serverPath} to start up before validating...`);
+
 		return new Promise((resolve, reject) => {
 			const server = fork(serverPath, validationMode);
 			server.on('message', isRunning => {
