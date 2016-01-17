@@ -53,7 +53,7 @@ Then use the Valimate Notifier module to notify Valimate when the server is read
 'use strict';
 
 const http = require('http');
-const notifyValimate = require('valimate-notify');
+const notifyValimate = require('valimate-notifier');
 const dataService = require('./services/myDataService');
 const htmlBuilder = require('./view/htmlBuilder');
 
@@ -70,6 +70,8 @@ dataService.someAsyncOperation().then(data => {
 ```
 
 Upon running the `valimate` CLI, your app server will be started as a child process, and killed when testing is complete.
+
+If your app server has not been started by Valimate (e.g. running in production), then this method will do nothing.
 
 
 ## Contributing

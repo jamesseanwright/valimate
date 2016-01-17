@@ -4,11 +4,8 @@
   "description": "Automated HTML validation for Node.js applications",
   "repository": "https://github.com/jamesseanwright/valimate",
   "main": "index.js",
-  "bin": {
-    "valimate": "./index"
-  },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha && node code"
   },
   "keywords": [
     "html",
@@ -20,8 +17,9 @@
   "author": "James Wright <james@jamesswright.co.uk>",
   "license": "ISC",
   "devDependencies": {
-    "chai": "^3.4.1",
-    "mocha": "^2.3.4",
-    "sinon": "^1.17.2"
+    "chai": "3.4.1",
+    "mocha": "2.3.4",
+    "sinon": "1.17.2",
+    "valimate-notifier": "1.0.1"
   }
 }

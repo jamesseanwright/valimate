@@ -22,11 +22,10 @@ function onValidated(results) {
 
 	if (!failed) {
 		console.info('Congratulations! Your HTML is valid!');
-		resultsPrinter.resetStdout();
-		process.exit(0);
+		exit(0);
 	} 
 
-	process.exit(config.failHard ? 1 : 0);
+	exit(config.failHard ? 1 : 0);
 }
 
 function hasErrors(results) {
@@ -35,6 +34,14 @@ function hasErrors(results) {
 
 function onError(error) {
 	console.error(error);
+	exit(1);
+}
+
+function exit(exitCode) {
+	if (config.localAppServer) {
+		localAppServer.stop();
+	}
+
 	resultsPrinter.resetStdout();
-	process.exit(1);
+	process.exit(exitCode);
 }

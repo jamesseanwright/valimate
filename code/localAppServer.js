@@ -10,8 +10,8 @@ module.exports = {
 		console.info(`Waiting for ${serverPath} to start up before validating...`);
 
 		return new Promise((resolve, reject) => {
-			const server = fork(serverPath, validationMode);
-			server.on('message', isRunning => {
+			this.server = fork(serverPath, [VALIDATION_MODE]);
+			this.server.on('message', isRunning => {
 				if (!isRunning) {
 					reject(new Error(START_UP_FAILED));
 				} else {
@@ -19,5 +19,9 @@ module.exports = {
 				}
 			});
 		});
+	},
+
+	stop() {
+		this.server.kill();
 	}
 };

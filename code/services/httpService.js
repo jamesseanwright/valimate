@@ -2,7 +2,7 @@
 
 const http = require('http');
 const https = require('https');
-const urlParser = require('./urlParser');
+const url = require('url');
 
 module.exports = {
 	post(url, options) {
@@ -13,10 +13,11 @@ module.exports = {
 		return this._makeRequest('GET', url, options);
 	},
 
-	_makeRequest(method, url, options) {
+	_makeRequest(method, urlString, options) {
 		return new Promise((resolve, reject) => {
-			const requestOptions = this._createOptions(method, url, options);
-			const requester = this._getRequester(url);
+			const parsedUrl = url.parse(urlString);
+			const requestOptions = this._createOptions(method, parsedUrl, options);
+			const requester = this._getRequester(parsedUrl);
 			const request = requester(requestOptions, res => this._onResponse(res, resolve, reject));
 
 			request.on('error', reject);
@@ -31,8 +32,9 @@ module.exports = {
 
 	_createOptions(method, url, options) {
 		var requestOptions = {
-			hostname: urlParser.getHost(url),
-			path: urlParser.getPath(url),
+			hostname: url.hostname,
+			path: url.path,
+			port: url.port,
 			method
 		};
 
@@ -56,6 +58,7 @@ module.exports = {
 	},
 
 	_getRequester(url) {
-		return urlParser.isHttps(url) ? https.request : http.request;
+		const isHttps = url.protocol === 'https:';
+		return isHttps ? https.request : http.request;
 	}
 };
