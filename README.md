@@ -2,7 +2,7 @@
 
 Valimate is a configurable command line interface for validating local and remote websites against the [Nu HTML Checker](https://github.com/validator/validator). It can be easily integrated with continuous integration pipelines and regression test suites.
 
-Supports *Node.js 4 and above*
+Requires **Node.js 4 and above**
 
 
 ## Installing
