@@ -2,7 +2,6 @@
 
 'use strict';
 
-const keepAlive = require('net').createServer().listen(10012);
 const config = require('./config');
 const intro = require('./intro');
 const runner = require('./runner');
