@@ -37,11 +37,17 @@ All of the configuration options are listed on the [valimate.json wiki page](htt
 
 In a continuous integration scenario, it could be ideal validate your app server with the latest code changes. If this server is developed in Node.js, then you can use the [Valimate Notifier](https://github.com/jamesseanwright/valimate-notifier) module to defer the execution of tests until the server has started up and is ready to serve HTML.
 
-In the valimate.json file, set the `localAppServer` to point to your server's entry script:
+In the valimate.json file, set the `localAppServer` to point to your server's entry script. You can also use the `env` property to pass environment variables to the process as key-value pairs:
 
 ```
 {
-	"localAppServer": "app.js",
+	"localAppServer": {
+		"entryPoint": "app.js",
+
+		"env": {
+			"TEST": "true"
+		}
+	},
 
 	"urls": [
 		"http://localhost:8081/"
