@@ -10,7 +10,7 @@ Requires **Node.js 4 and above**
 ## Installing
 
 ```
-sudo npm i -g valimate
+sudo npm i -g valimate@2.0.2
 ```
 
 

@@ -1,6 +1,6 @@
 {
   "name": "valimate",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Automated HTML validation for Node.js applications",
   "repository": "https://github.com/jamesseanwright/valimate",
   "bin": {
@@ -26,6 +26,6 @@
     "valimate-notifier": "1.0.2"
   },
   "dependencies": {
-    "request": "^2.74.0"
+    "request": "2.74.0"
   }
 }
