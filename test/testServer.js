@@ -20,8 +20,33 @@ const HTML = `
 	</html>
 `;
 
-http.createServer((req, res) => {
+function sendHtml(res) {
 	res.end(HTML, 'utf-8');
+}
+
+function redirect(res, statusCode) {
+	res.writeHead(statusCode, {
+		Location: '/'
+	});
+
+	res.end();
+}
+
+http.createServer((req, res) => {
+	switch (req.url) {
+		case '/301-redirect':
+			redirect(res, 301);
+			break;
+
+		case '/302-redirect':
+			redirect(res, 302);
+			break;
+
+		default:
+			sendHtml(res);
+	}
+
 }).listen(PORT, () => {
+	console.log(`Test server listening on ${PORT}...`);
 	notifyValimate(true);
 });

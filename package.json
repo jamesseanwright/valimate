@@ -24,5 +24,8 @@
     "mocha": "2.3.4",
     "sinon": "1.17.2",
     "valimate-notifier": "1.0.2"
+  },
+  "dependencies": {
+    "request": "^2.74.0"
   }
 }

@@ -2,6 +2,8 @@
 	"localAppServer": "test/testServer.js",
 
 	"urls": [
-		"http://localhost:8081"
+		"http://localhost:8081",
+		"http://localhost:8081/301-redirect",
+		"http://localhost:8081/302-redirect"
 	]
 }
