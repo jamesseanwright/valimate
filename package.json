@@ -1,6 +1,6 @@
 {
   "name": "valimate",
-  "version": "1.0.6",
+  "version": "2.0.0",
   "description": "Automated HTML validation for Node.js applications",
   "repository": "https://github.com/jamesseanwright/valimate",
   "bin": {
