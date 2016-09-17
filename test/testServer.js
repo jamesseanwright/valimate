@@ -32,6 +32,16 @@ function redirect(res, statusCode) {
 	res.end();
 }
 
+function assertEnvVariable() {
+	const expectedValue = 'true';
+
+	if (!process.env.TEST || process.env.TEST !== expectedValue) {
+		throw new Error(`Expect process.env.TEST to be ${expectedValue}!`)
+	}
+}
+
+assertEnvVariable();
+
 http.createServer((req, res) => {
 	switch (req.url) {
 		case '/301-redirect':

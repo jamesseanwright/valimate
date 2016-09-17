@@ -1,5 +1,11 @@
 {
-	"localAppServer": "test/testServer.js",
+	"localAppServer": {
+		"entryPoint": "test/testServer.js",
+
+		"env": {
+			"TEST": "true"
+		}
+	},
 
 	"urls": [
 		"http://localhost:8081",
