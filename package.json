@@ -1,14 +1,13 @@
 {
   "name": "valimate",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "Automated HTML validation for Node.js applications",
   "repository": "https://github.com/jamesseanwright/valimate",
   "bin": {
     "valimate": "lib/index.js"
   },
-  "preferGlobal": true,
   "scripts": {
-    "test": "mocha && node lib"
+    "test": "eslint {lib,tests} && mocha && node lib"
   },
   "keywords": [
     "html",
@@ -21,6 +20,7 @@
   "license": "ISC",
   "devDependencies": {
     "chai": "3.4.1",
+    "eslint": "3.10.2",
     "mocha": "2.3.4",
     "sinon": "1.17.2",
     "valimate-notifier": "1.0.2"
