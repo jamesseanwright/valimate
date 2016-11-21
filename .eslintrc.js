@@ -8,35 +8,35 @@ module.exports = {
 		"afterEach": true
 	},
 
-    "env": {
-        "es6": true,
-        "node": true
-    },
+	"env": {
+		"es6": true,
+		"node": true
+	},
 
-    "extends": "eslint:recommended",
+	"extends": "eslint:recommended",
 
-    "rules": {
-        "indent": [
-            "error",
-            "tab"
-        ],
+	"rules": {
+		"indent": [
+			"error",
+			"tab"
+		],
 
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
+		"linebreak-style": [
+			"error",
+			"unix"
+		],
 
-        "quotes": [
-            "error",
-            "single"
-        ],
+		"quotes": [
+			"error",
+			"single"
+		],
 
-        "semi": [
-            "error",
-            "always"
-        ],
+		"semi": [
+			"error",
+			"always"
+		],
 
 		"no-console": "off",
 		"no-var": "error"
-    }
+	}
 };

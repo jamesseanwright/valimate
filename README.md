@@ -10,7 +10,7 @@ Requires **Node.js 4 or greater**
 ## Installing
 
 ```
-npm i --save-dev valimate@2.0.2
+npm i --save-dev valimate@2.1.2
 ```
 
 
