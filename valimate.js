@@ -3,4 +3,4 @@
 const config = require('./lib/config');
 const valimate = require('./lib');
 
-valimate(config);
+valimate.validate(config, true);
