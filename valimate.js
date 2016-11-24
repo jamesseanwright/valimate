@@ -2,7 +2,7 @@
 
 'use strict';
 
-const config = require('./lib/config');
+const config = require(process.cwd() + '/valimate.json');
 const valimate = require('./lib');
 
 valimate.validate(config, true);
