@@ -5,13 +5,13 @@
   "repository": "https://github.com/jamesseanwright/valimate",
 
   "bin": {
-    "valimate": "lib/index.js"
+    "valimate": "valimate.js"
   },
 
   "main": "lib/index.js",
 
   "scripts": {
-    "test": "eslint {lib,tests} && mocha && node valimate"
+    "test": "eslint {lib,tests} && mocha && ./valimate.js"
   },
 
   "keywords": [
