@@ -1,6 +1,6 @@
 # Valimate
 
-[![Build status](https://api.travis-ci.org/jamesseanwright/valimate.svg)](https://travis-ci.org/jamesseanwright/valimate)
+[![Build status](https://api.travis-ci.org/jamesseanwright/valimate.svg)](https://travis-ci.org/jamesseanwright/valimate) [![Coverage Status](https://coveralls.io/repos/github/jamesseanwright/valimate/badge.svg?branch=master)](https://coveralls.io/github/jamesseanwright/valimate?branch=master)
 
 Valimate is a configurable command line interface for validating local and remote websites against the [Nu HTML Checker](https://github.com/validator/validator). It can be easily integrated with continuous integration pipelines and regression test suites.
 
