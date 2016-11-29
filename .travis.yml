@@ -6,6 +6,7 @@ node_js:
   - 7
 
 install: "npm i"
+script: "npm run test-and-report-coverage"
 
 deploy:
   provider: npm

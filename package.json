@@ -9,9 +9,9 @@
   "main": "lib/index.js",
   "scripts": {
     "eslint": "eslint {lib,tests,valimate.js}",
-    "test": "npm run eslint && mocha && npm run test-e2e",
-    "test-e2e": "./valimate.js",
-    "test-with-coverage": "npm run eslint && npm run test-e2e && istanbul cover _mocha --report lcovonly"
+    "test": "npm run eslint && npm run test-e2e && istanbul cover _mocha --report lcovonly",
+    "test-and-report-coverage": "npm test && cat coverage/lcov.info | coveralls",
+    "test-e2e": "./valimate.js"
   },
   "keywords": [
     "html",
