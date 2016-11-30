@@ -99,10 +99,10 @@ const config = {
 	]
 };
 
+/* protip: ~ = bitwise NOT - can use this twice to doubly
+ * invert the bits to coerce a bool to 1 or 0 */
 valimate.validate(config)
-	.then(isInvalid => {
-		process.exit(isInvalid ? 1 : 0);
-	});
+	.then(isInvalid => process.exit(~~isInvalid));
 ```
 
 Using Valimate programmatically will still print results as if the library had been invoked via the CLI; this capability is simply a means of convenience; this can be useful when there are many asynchronous prerequisites involved. In the next major release, however, this _may_ directly expose validation results.
