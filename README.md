@@ -32,6 +32,9 @@ To validate these URLs, run `./node_modules/.bin/valimate` in your terminal or `
 
 All of the configuration options are listed on the [valimate.json wiki page](https://github.com/jamesseanwright/valimate/wiki/valimate.json).
 
+## Running with another configuration file 
+
+Run ./node_modules/.bin/valimate file.json in your terminal or valimate within the context of an npm script.
 
 ## Running against a local app server
 
