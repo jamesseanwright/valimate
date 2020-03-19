@@ -4,7 +4,7 @@
 
 Valimate is a configurable command line interface for validating local and remote websites against the [Nu HTML Checker](https://github.com/validator/validator). It can be easily integrated with continuous integration pipelines and regression test suites.
 
-Requires **Node.js 4 or greater**
+Requires **Node.js 10 or greater**
 
 
 ## Installing
@@ -32,7 +32,7 @@ To validate these URLs, run `./node_modules/.bin/valimate` in your terminal or `
 
 All of the configuration options are listed on the [valimate.json wiki page](https://github.com/jamesseanwright/valimate/wiki/valimate.json).
 
-## Running with another configuration file 
+## Running with another configuration file
 
 Run `./node_modules/.bin/valimate file.json` in your terminal or `valimate file.json` within the context of an npm script.
 
