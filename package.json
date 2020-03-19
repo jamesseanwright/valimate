@@ -8,7 +8,8 @@
   },
   "main": "lib/index.js",
   "scripts": {
-    "eslint": "eslint {lib,tests,valimate.js}",
+    "eslint": "eslint lib test valimate.js",
+    "format": "prettier --write 'lib/**/*.js'",
     "test": "npm run eslint && npm run test-e2e && istanbul cover _mocha --report lcovonly",
     "test-and-report-coverage": "npm test && cat coverage/lcov.info | coveralls",
     "test-e2e": "./valimate.js"
@@ -26,9 +27,10 @@
   "devDependencies": {
     "chai": "3.4.1",
     "coveralls": "2.11.15",
-    "eslint": "3.10.2",
+    "eslint": "6.8.0",
     "istanbul": "0.4.5",
     "mocha": "2.3.4",
+    "prettier": "1.19.1",
     "sinon": "1.17.2",
     "valimate-notifier": "1.0.2"
   },

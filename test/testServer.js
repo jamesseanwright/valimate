@@ -26,7 +26,7 @@ function sendHtml(res) {
 
 function redirect(res, statusCode) {
 	res.writeHead(statusCode, {
-		Location: '/'
+		Location: '/',
 	});
 
 	res.end();
