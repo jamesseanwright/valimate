@@ -26,15 +26,15 @@
   "license": "ISC",
   "devDependencies": {
     "chai": "3.4.1",
-    "coveralls": "2.11.15",
+    "coveralls": "3.0.11",
     "eslint": "6.8.0",
     "istanbul": "0.4.5",
-    "mocha": "2.3.4",
+    "mocha": "7.1.1",
     "prettier": "1.19.1",
     "sinon": "1.17.2",
     "valimate-notifier": "1.0.2"
   },
   "dependencies": {
-    "request": "2.74.0"
+    "request": "2.88.2"
   }
 }
