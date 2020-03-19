@@ -20,11 +20,11 @@ Valimate is configured on a per-project basis via the [valimate.json](https://gi
 
 ```javascript
 {
-	"urls": [
-		"http://jamesswright.co.uk/",
-		"http://jamesswright.co.uk/about-me",
-		"http://jamesswright.co.uk/skills"
-	]
+  "urls": [
+    "http://jamesswright.co.uk/",
+    "http://jamesswright.co.uk/about-me",
+    "http://jamesswright.co.uk/skills"
+  ]
 }
 ```
 
@@ -44,17 +44,17 @@ In the valimate.json file, set the `localAppServer` to point to your server's en
 
 ```javascript
 {
-	"localAppServer": {
-		"entryPoint": "app.js",
+  "localAppServer": {
+    "entryPoint": "app.js",
 
-		"env": {
-			"TEST": "true"
-		}
-	},
+    "env": {
+      "TEST": "true"
+    }
+  },
 
-	"urls": [
-		"http://localhost:8081/"
-	]
+  "urls": [
+    "http://localhost:8081/"
+  ]
 }
 ```
 
@@ -71,13 +71,12 @@ const htmlBuilder = require('./view/htmlBuilder');
 const PORT = 8081;
 
 dataService.someAsyncOperation().then(data => {
-	http.createServer((req, res) => {
-		res.end(htmlBuilder(data), 'utf-8');
-	}).listen(PORT, () => {
-		notifyValimate(true);
-	});
+  http.createServer((req, res) => {
+    res.end(htmlBuilder(data), 'utf-8');
+  }).listen(PORT, () => {
+    notifyValimate(true);
+  });
 }).catch(e => notifyValimate(false));
-
 ```
 
 Upon running the `valimate` CLI, your app server will be started as a child process, and killed when testing is complete.
@@ -95,17 +94,17 @@ Valimate can also be imported into your Node.js scripts as a CommonJS module. It
 const valimate = require('valimate');
 
 const config = {
-	urls: [
-		'http://jamesswright.co.uk/',
-		'http://jamesswright.co.uk/about-me',
-		'http://jamesswright.co.uk/skills'
-	]
+  urls: [
+    'http://jamesswright.co.uk/',
+    'http://jamesswright.co.uk/about-me',
+    'http://jamesswright.co.uk/skills'
+  ]
 };
 
 /* protip: ~ = bitwise NOT - can use this twice to doubly
  * invert the bits to coerce a bool to 1 or 0 */
 valimate.validate(config)
-	.then(isInvalid => process.exit(~~isInvalid));
+  .then(isInvalid => process.exit(~~isInvalid));
 ```
 
 Using Valimate programmatically will still print results as if the library had been invoked via the CLI; this capability is simply a means of convenience; this can be useful when there are many asynchronous prerequisites involved. In the next major release, however, this _may_ directly expose validation results.
