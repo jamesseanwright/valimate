@@ -13,15 +13,10 @@ module.exports = {
 		"node": true
 	},
 
-	"parserOptions": {
-		"ecmaVersion": 2017
-	},
-
 	"extends": "eslint:recommended",
 
 	"rules": {
 		"no-console": "off",
 		"no-var": "error",
-		"comma-dangle": ["error", "always-multiline"],
 	}
 };
