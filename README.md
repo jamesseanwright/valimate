@@ -28,13 +28,13 @@ Valimate is configured on a per-project basis via the [valimate.json](https://gi
 }
 ```
 
-To validate these URLs, run `./node_modules/.bin/valimate` in your terminal or `valimate` within the context of an npm script. Valimate will read the config; each URL is requested via HTTP GET, and the returned markup is sent to the Nu validator.
+To validate these URLs, run `npx valimate` in your terminal or `valimate` within the context of an npm script. Valimate will read the config; each URL is requested via HTTP GET, and the returned markup is sent to the Nu validator.
 
 All of the configuration options are listed on the [valimate.json wiki page](https://github.com/jamesseanwright/valimate/wiki/valimate.json).
 
 ## Running with another configuration file
 
-Run `./node_modules/.bin/valimate file.json` in your terminal or `valimate file.json` within the context of an npm script.
+Run `npx valimate file.json` in your terminal or `valimate file.json` within the context of an npm script.
 
 ## Running against a local app server
 
