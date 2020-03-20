@@ -21,42 +21,43 @@ const HTML = `
 `;
 
 function sendHtml(res) {
-	res.end(HTML, 'utf-8');
+  res.end(HTML, 'utf-8');
 }
 
 function redirect(res, statusCode) {
-	res.writeHead(statusCode, {
-		Location: '/',
-	});
+  res.writeHead(statusCode, {
+    Location: '/'
+  });
 
-	res.end();
+  res.end();
 }
 
 function assertEnvVariable() {
-	const expectedValue = 'true';
+  const expectedValue = 'true';
 
-	if (!process.env.TEST || process.env.TEST !== expectedValue) {
-		throw new Error(`Expect process.env.TEST to be ${expectedValue}!`)
-	}
+  if (!process.env.TEST || process.env.TEST !== expectedValue) {
+    throw new Error(`Expect process.env.TEST to be ${expectedValue}!`);
+  }
 }
 
 assertEnvVariable();
 
-http.createServer((req, res) => {
-	switch (req.url) {
-		case '/301-redirect':
-			redirect(res, 301);
-			break;
+http
+  .createServer((req, res) => {
+    switch (req.url) {
+      case '/301-redirect':
+        redirect(res, 301);
+        break;
 
-		case '/302-redirect':
-			redirect(res, 302);
-			break;
+      case '/302-redirect':
+        redirect(res, 302);
+        break;
 
-		default:
-			sendHtml(res);
-	}
-
-}).listen(PORT, () => {
-	console.log(`Test server listening on ${PORT}...`);
-	notifyValimate(true);
-});
+      default:
+        sendHtml(res);
+    }
+  })
+  .listen(PORT, () => {
+    console.log(`Test server listening on ${PORT}...`);
+    notifyValimate(true);
+  });

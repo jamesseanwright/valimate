@@ -9,7 +9,7 @@
   "main": "lib/index.js",
   "scripts": {
     "eslint": "eslint lib test valimate.js",
-    "format": "prettier --write 'lib/**/*.js'",
+    "format": "prettier --write 'test/**/*.js' valimate.js 'lib/**/*.js'",
     "test": "npm run eslint && npm run test-e2e && istanbul cover _mocha --report lcovonly",
     "test-and-report-coverage": "npm test && cat coverage/lcov.info | coveralls",
     "test-e2e": "./valimate.js"
