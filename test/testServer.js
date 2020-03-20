@@ -6,18 +6,18 @@ const notifyValimate = require('valimate-notifier');
 const PORT = 8081;
 
 const HTML = `
-	<!DOCTYPE html>
-	<html>
-		<head>
-			<title>Valimate Test Server</title>
-		</head>
-		<body>
-			<section role="main">
-				<h1>Valimate Test Server</h1>
-				<p>This is some valid, dummy HTML</p>
-			</section>
-		</body>
-	</html>
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>Valimate Test Server</title>
+    </head>
+    <body>
+      <section role="main">
+        <h1>Valimate Test Server</h1>
+        <p>This is some valid, dummy HTML</p>
+      </section>
+    </body>
+  </html>
 `;
 
 function sendHtml(res) {
