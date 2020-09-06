@@ -1,6 +1,6 @@
 {
   "name": "valimate",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Automated HTML validation tool",
   "repository": "https://github.com/jamesseanwright/valimate",
   "bin": {
